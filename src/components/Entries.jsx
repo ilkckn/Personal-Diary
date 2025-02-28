@@ -2,7 +2,9 @@ import React from 'react'
 
 function Entries() {
   return (
-    <div>Entries</div>
+    <div className='entryContainer'>
+      
+    </div>
   )
 }
 
