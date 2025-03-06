@@ -1,15 +1,20 @@
-import Home from "./pages/Home"
-import SplashScreen from "./components/SplashScreen"
-import "./App.css"
+import "./App.css";
+import EntryModal from "./components/EntryModal";
+import EntryContextProvider from "./context/EntryContext";
+import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
-    <div className="appContainer w-full min-h-[100vh]">
-      <SplashScreen />
-      <Home />
-    </div>
-  )
+    <EntryContextProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/entry/:id" element={<EntryModal />} />
+        </Routes>
+      </div>
+    </EntryContextProvider>
+  );
 }
 
-export default App
+export default App;

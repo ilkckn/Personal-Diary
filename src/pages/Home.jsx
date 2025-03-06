@@ -1,16 +1,19 @@
 import React from "react";
-import logo from "../assets/images/logo/logo.png";
-import Entries from "../components/Entries";
+import EntryForm from "../components/EntryForm";
+import EntryList from "../components/EntryList";
+import { EntryContext } from "../context/EntryContext";
+import { useContext } from "react";
+import EntryModal from "../components/EntryModal";
 
-const Home = () => {
+function Home() {
+  const { isModalOpen } = useContext(EntryContext);
   return (
-    <div className="homeContainer w-full min-h-[100vh]">
-      <div className="logo w-full py-5 px-[7rem] flex items-center justify-start">
-        <img src={logo} alt="diary-logo" className="w-[15rem] h-[15rem]" />
-      </div>
-      <Entries />
+    <div className="home w-full min-h-[100vh] flex flex-col items-center gap-[10rem]">
+      <EntryForm />
+      <EntryList />
+      {isModalOpen && <EntryModal />}
     </div>
   );
-};
+}
 
 export default Home;

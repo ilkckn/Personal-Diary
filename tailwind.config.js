@@ -1,9 +1,11 @@
-/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["index.html", "./src/**/*.{html,js}"], // Include any files that you want to apply the styles to
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
-};
+  plugins: [],
+}
